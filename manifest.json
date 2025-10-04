@@ -1,0 +1,17 @@
+{
+  "name": "Forms Link Watcher",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Открывает ссылку на forms.office.com при её появлении на сайте.",
+  "permissions": ["tabs", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
