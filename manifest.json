@@ -1,9 +1,18 @@
 {
-  "name": "Forms Link Watcher",
-  "version": "1.0",
+  "name": "Отслеживатель ссылок на формы",
+  "version": "2.0",
   "manifest_version": 3,
-  "description": "Открывает ссылку на forms.office.com при её появлении на сайте.",
-  "permissions": ["tabs", "scripting"],
+  "description": "Отслеживает ссылки на Microsoft Forms (forms.office.com и forms.cloud.microsoft) на текущих страницах и на удаленных сайтах.",
+  "permissions": [
+    "tabs", 
+    "scripting", 
+    "storage",
+    "activeTab",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -13,5 +22,9 @@
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Отслеживатель ссылок на формы"
   }
 }

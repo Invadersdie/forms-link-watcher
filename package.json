@@ -1,0 +1,16 @@
+{
+  "name": "forms-link-watcher-test",
+  "version": "1.0.0",
+  "description": "Test server for Forms Link Watcher Chrome extension",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["chrome-extension", "test", "server"],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

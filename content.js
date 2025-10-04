@@ -1,5 +1,5 @@
 function checkLinks() {
-  const links = Array.from(document.querySelectorAll("a[href*='forms.office.com']"));
+  const links = Array.from(document.querySelectorAll("a[href*='forms.office.com'], a[href*='forms.cloud.microsoft']"));
   if (links.length > 0) {
     const url = links[0].href;
     if (!window.__formsOpened) {
