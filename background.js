@@ -220,7 +220,7 @@ async function openFormTab(url) {
     try {
         await chrome.tabs.create({ 
             url: url,
-            active: false // Open in background
+            active: true // Open in background
         });
     } catch (error) {
         await logMessage('error', `Ошибка открытия вкладки: ${error.message}`);
