@@ -162,7 +162,7 @@ async function stopMonitoring() {
 async function scanWebsite(url) {
     try {
         await logMessage('info', `Сканирование страницы: ${url}`);
-        
+
         // Fetch the webpage
         const response = await fetch(url, {
             method: 'GET',
@@ -173,6 +173,7 @@ async function scanWebsite(url) {
         });
         
         if (!response.ok) {
+            await resetCookies();
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
         
@@ -215,6 +216,15 @@ async function scanWebsite(url) {
             formsFound: 0
         };
     }
+}
+
+async function resetCookies() {
+       await chrome.cookies.remove({
+            url: `https://formularz-rodziny-cudzoziemcow.mazowieckie.pl/`,
+            name: "bm_sv"
+          }, async (details) => {
+            await logMessage ('error', `Удалён cookie: ${details.message}`);
+          });
 }
 
 async function openFormTab(url) {
